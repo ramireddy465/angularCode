@@ -1,0 +1,205 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+   
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+      
+      <form class="form-inline my-2 my-lg-0" class="center">
+        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a hero by id or name or country">  
+        
+    </form>
+    <span style="margin-right:200px">cart <span class="badge badge-light">{{items}}</span></span>
+    </div>
+
+    
+  </nav>
+
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+<div class="row">
+<div class="card" style="width: 18rem;" (click)="cat1()" style="cursor: pointer;">
+    <div class="card-body">
+      <h5 class="card-title">sports</h5>
+     
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;" (click)="cat2()" style="cursor: pointer;">
+    <div class="card-body">
+      <h5 class="card-title">cloths</h5>
+     
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;" (click)="cat3()" style="cursor: pointer;">
+    <div class="card-body">
+      <h5 class="card-title">Zone</h5>
+     
+    </div>
+  </div>
+</div>
+<div class="container" *ngIf="allproducts">
+    <h3 class="h3">shopping Demo-1 </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor = "let product of products | filter:searchText">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1"  [src]="product.ListImagePath">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <span class="product-new-label">Sale</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">{{product.ProductTitle}}</a></h3>
+                    <div class="price">{{product.Price}}
+                       
+                    </div>
+                    <a class="add-to-cart" style="cursor: pointer;" (click)="addtocart(product)" >+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</div>
+<hr>
+<div class="container" *ngIf="cagegory1">
+    <h3 class="h3">sports </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor = "let product of sports | filter:searchText">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1"  [src]="product.ListImagePath">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <span class="product-new-label">Sale</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">{{product.ProductTitle}}</a></h3>
+                    <div class="price">{{product.Price}}
+                       
+                    </div>
+                    <a class="add-to-cart" style="cursor: pointer;" (click)="addtocart(product)" >+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</div>
+<hr>
+<div class="container" *ngIf="cagegory2">
+    <h3 class="h3">cloths </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor = "let product of Comfort | filter:searchText">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1"  [src]="product.ListImagePath">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <span class="product-new-label">Sale</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">{{product.ProductTitle}}</a></h3>
+                    <div class="price">{{product.Price}}
+                       
+                    </div>
+                    <a class="add-to-cart" style="cursor: pointer;" (click)="addtocart(product)" >+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</div>
+<hr>
+<div class="container" *ngIf="cagegory3">
+    <h3 class="h3">Zone </h3>
+    <div class="row">
+        <div class="col-md-3 col-sm-6" *ngFor = "let product of Zone | filter:searchText">
+            <div class="product-grid">
+                <div class="product-image">
+                    <a href="#">
+                        <img class="pic-1"  [src]="product.ListImagePath">
+                    </a>
+                    <ul class="social">
+                        <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
+                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    </ul>
+                    <span class="product-new-label">Sale</span>
+                    <span class="product-discount-label">20%</span>
+                </div>
+                <ul class="rating">
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star"></li>
+                    <li class="fa fa-star disable"></li>
+                </ul>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">{{product.ProductTitle}}</a></h3>
+                    <div class="price">{{product.Price}}
+                       
+                    </div>
+                    <a class="add-to-cart" style="cursor: pointer;" (click)="addtocart(product)" >+ Add To Cart</a>
+                </div>
+            </div>
+        </div>
+        <br>
+
+    </div>
+</div>
+
+
+
+
